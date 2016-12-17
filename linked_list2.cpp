@@ -29,23 +29,32 @@ public:
         return ret;
     }
     
-    
+    void displayValue(){
+    	n = head;
+    	cout << "\n";
+    	while(n!=NULL){
+    		cout << n->x << "\n";
+    		n = n->next;
+		}
+		
+	}
 
 private:
-    Node *head; 
+    Node *head, *n; 
 };
 
 
 int main (){
 	
  	LinkedList list;
-	int choice, num, x, temp;
+	int choice, num;
 	
 	while(1){
-		cout<<"~~~~~Choices~~~~~"<<endl;
+		cout<<"~~~~~Choices~~~~~"<<endl<<endl;
 		cout<<"[1]Insert into linked list"<<endl;
 		cout<<"[2]Pop"<<endl;
-		cout<<"[3]Exit"<<endl<<endl;
+		cout<<"[3]Exit"<<endl;
+		cout<<"[4]Display"<<endl<<endl;
 		cout<<"Enter Choice: ";
 		cin>>choice;
 		switch(choice){
@@ -62,9 +71,13 @@ int main (){
             case 3:
                 return 0;
                 break;
-           
+            case 4:
+				list.displayValue();
+				break;
 			}
         }
         return 0;
     }
+    
+
     
