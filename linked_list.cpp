@@ -46,7 +46,7 @@ void addafter(int num, int loc) {
   int i;
   struct node * temp, * left, * right;
   right = head;
-  for (i = 1; i < loc; i++) {
+  for (i = 0; i < loc; i++) {
     left = right;
     right = right -> next;
   }
@@ -56,6 +56,30 @@ void addafter(int num, int loc) {
   left = temp;
   left -> next = right;
   return;
+}
+
+void adelete(int num) {
+  struct node * temp, * prev;
+  temp = head;
+  while (temp != NULL) {
+    if (temp -> data == num) {
+      if (temp == head) {
+        head = temp -> next;
+        free(temp);
+      temp = prev ->next;
+      
+      } else {
+        prev -> next = temp -> next;
+        free(temp);
+        temp = prev ->next;
+      
+      }
+    } else {
+      prev = temp;
+      temp = temp -> next;
+    }
+  }
+
 }
 
 int ddelete(int num) {
@@ -129,7 +153,7 @@ void search(int num){
 }
 
 int main() {
-  int i, num, val, c;
+  int i, num, val, c, position;
   struct node * n;
   head = NULL;
   while (1) {
@@ -140,7 +164,9 @@ int main() {
     printf("3.Size\n");
     printf("4.Delete\n");
     printf("5.Search\n");
-    printf("6.Exit\n");
+    printf("6.Add After\n");
+    printf("7.Delete All\n");
+    printf("8.Exit\n");
     printf("Enter your choice : ");
     if (scanf("%d", & i) <= 0) {
       printf("Enter only an Integer\n");
@@ -179,9 +205,22 @@ int main() {
 	  	  printf("Enter number to search: ");
 		  scanf("%d", &num);
 		  search(num);
-	  	  
-      case 6:
-        return 0;
+	  case 6:
+    	printf("Enter number to insert: ");
+    	scanf("%d", &num);
+    	printf("Enter the position \n");
+    	scanf("%d", &position);
+    	addafter(num,position);
+    	break;
+
+      case 7:
+    	printf("Enter number to delete: ");
+    	scanf("%d" , &num);
+    	adelete(num);
+    	break;
+      case 8:
+    	return 0;
+    	break;
       default:
         printf("Invalid option\n");
       }
