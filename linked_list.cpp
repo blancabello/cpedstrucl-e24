@@ -58,7 +58,7 @@ void addafter(int num, int loc) {
   return;
 }
 
-void adelete(int num) {
+void addelete(int num) {
   struct node * temp, * prev;
   temp = head;
   while (temp != NULL) {
@@ -216,7 +216,7 @@ int main() {
       case 7:
     	printf("Enter number to delete: ");
     	scanf("%d" , &num);
-    	adelete(num);
+    	addelete(num);
     	break;
       case 8:
     	return 0;
