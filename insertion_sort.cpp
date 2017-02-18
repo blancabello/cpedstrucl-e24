@@ -12,9 +12,9 @@ int main(){
 		}
 		A[j+1] = tmp;
 			
-			cout<<"Pass "<<++burp<<endl;
+			cout<<"\nPass "<<++burp<<endl;
 			for(int f=0;f<5;++f)
-			cout<<" "<<A[f]<<endl;
+			cout<<"   "<<A[f];
 	}
 	
 }
